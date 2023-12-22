@@ -33,14 +33,14 @@ RECORD_SECONDS = 5
 
     # Save the recorded audio as a WAV file
     # audio_filename = "recorded_audio.wav"
-    wf = wave.open(audio_filename, 'wb')
-    wf.setnchannels(CHANNELS)
-    wf.setsampwidth(p.get_sample_size(FORMAT))
-    wf.setframerate(RATE)
-    wf.writeframes(b''.join(frames))
-    wf.close()
+    # wf = wave.open(audio_filename, 'wb')
+    # wf.setnchannels(CHANNELS)
+    # wf.setsampwidth(p.get_sample_size(FORMAT))
+    # wf.setframerate(RATE)
+    # wf.writeframes(b''.join(frames))
+    # wf.close()
 
-    return audio_filename
+    # return audio_filename
 
 st.set_page_config(
     page_title="BOT",
