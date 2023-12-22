@@ -1,7 +1,7 @@
 import sys
 # sys.path.append("../")
 import streamlit as st
-import pyaudio
+# import pyaudio
 import wave
 from chatbot.audio_chat import AudioChatApp
 from chatbot.text_chat import TextChatApp
@@ -10,7 +10,7 @@ audio_chat_app = AudioChatApp()
 text_chat_app = TextChatApp()
 
 
-FORMAT = pyaudio.paInt16
+# FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 16000
 CHUNK = 1024
@@ -61,10 +61,11 @@ if st.button("Send", key="send_button"):
     response = text_chat_app.chat(input_message)
     st.session_state.messages.append({"role": "xyz", "content": response})
 
-if st.button("Record"):
-    audio_filename = record_audio()
-    st.audio(audio_filename, format="audio/wav")
-    recording = True
+# if st.button("Record"):
+#     audio_filename = record_audio()
+#     st.audio(audio_filename, format="audio/wav")
+#     recording = True
+
 
 
 if recording:
