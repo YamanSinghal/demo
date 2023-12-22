@@ -67,6 +67,7 @@ if st.button("Send", key="send_button"):
 #     recording = True
 
 
+
 if recording:
     chat_transcript = audio_chat_app.transcribe(audio_filename)
     st.write(chat_transcript)  
