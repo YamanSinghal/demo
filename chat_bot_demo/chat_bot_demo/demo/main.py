@@ -1,9 +1,10 @@
+import sys
+sys.path.append("../")
 import streamlit as st
 import pyaudio
 import wave
 from chatbot.audio_chat import AudioChatApp
 from chatbot.text_chat import TextChatApp
-
 # Initialize the AudioChatApp and TextChatApp
 audio_chat_app = AudioChatApp()
 text_chat_app = TextChatApp()
