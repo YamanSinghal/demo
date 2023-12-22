@@ -3,7 +3,7 @@ import os
 from utils.prompt import PROMPT_FOR_GPT
 
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 class TextChatApp:
     def __init__(self):
