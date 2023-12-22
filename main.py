@@ -61,10 +61,10 @@ if st.button("Send", key="send_button"):
     response = text_chat_app.chat(input_message)
     st.session_state.messages.append({"role": "xyz", "content": response})
 
-if st.button("Record"):
-    audio_filename = record_audio()
-    st.audio(audio_filename, format="audio/wav")
-    recording = True
+# if st.button("Record"):
+#     audio_filename = record_audio()
+#     st.audio(audio_filename, format="audio/wav")
+#     recording = True
 
 
 # if recording:
