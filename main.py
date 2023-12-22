@@ -78,7 +78,3 @@ for message in st.session_state.messages:
         role = message['role']
         content = message['content']
         st.write(f"{role}: {content}")
-
-
-
-        
