@@ -1,7 +1,7 @@
 import sys
 # sys.path.append("../")
 import streamlit as st
-import pyaudio
+# import pyaudio
 import wave
 from chatbot.audio_chat import AudioChatApp
 from chatbot.text_chat import TextChatApp
@@ -10,26 +10,26 @@ audio_chat_app = AudioChatApp()
 text_chat_app = TextChatApp()
 
 
-FORMAT = pyaudio.paInt16
+# FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 16000
 CHUNK = 1024
 RECORD_SECONDS = 5
 
 # Function to record audio
-def record_audio():
-    p = pyaudio.PyAudio()
-    stream = p.open(format=FORMAT, channels=CHANNELS, rate=RATE, input=True, frames_per_buffer=CHUNK)
-    # st.text("Recording...")
+# def record_audio():
+#     p = pyaudio.PyAudio()
+#     stream = p.open(format=FORMAT, channels=CHANNELS, rate=RATE, input=True, frames_per_buffer=CHUNK)
+#     # st.text("Recording...")
 
-    frames = []
+#     frames = []
 
-    for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
-        data = stream.read(CHUNK)
-        frames.append(data)
+#     for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
+#         data = stream.read(CHUNK)
+#         frames.append(data)
 
-    stream.stop_stream()
-    p.terminate()
+#     stream.stop_stream()
+#     p.terminate()
 
     # Save the recorded audio as a WAV file
     audio_filename = "recorded_audio.wav"
@@ -67,9 +67,9 @@ if st.button("Record"):
     recording = True
 
 
-if recording:
-    chat_transcript = audio_chat_app.transcribe(audio_filename)
-    st.write(chat_transcript)  
+# if recording:
+#     chat_transcript = audio_chat_app.transcribe(audio_filename)
+#     st.write(chat_transcript)  
 
 
 # Display chat messages from history on app rerun
