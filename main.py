@@ -6,7 +6,7 @@ from chatbot.text_chat import TextChatApp
 # Initialize the AudioChatApp and TextChatApp
 audio_chat_app = AudioChatApp()
 text_chat_app = TextChatApp()
-st.write("Secret Key", st.secrets["openai_secret_key"])
+# st.write("Secret Key", st.secrets["openai_secret_key"])
 
 # Set up Streamlit page configuration
 st.set_page_config(
