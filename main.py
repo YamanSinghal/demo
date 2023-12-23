@@ -11,7 +11,7 @@ text_chat_app = TextChatApp()
 # Set up Streamlit page configuration
 st.set_page_config(
     page_title="Strangify",
-    page_icon="/home/drono07/chat_bot_demo/chat_bot_demo/strangify.jpeg"
+    page_icon="strangify.jpeg"
 )
 
 # Set up Streamlit sidebar
