@@ -22,7 +22,7 @@ class AudioChatApp:
 
         response = response["choices"][0]["message"]["content"]
 
-        return f"User: {user_message['content']} \n xyz: {response}"
+        return f"User: {user_message['content']} \n Strangify: {response}"
 
 
 

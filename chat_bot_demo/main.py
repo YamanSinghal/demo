@@ -59,7 +59,7 @@ recording = False
 
 if st.button("Send", key="send_button"):
     response = text_chat_app.chat(input_message)
-    st.session_state.messages.append({"role": "xyz", "content": response})
+    st.session_state.messages.append({"role": "Strangify", "content": response})
 
 # if st.button("Record"):
 #     audio_filename = record_audio()
