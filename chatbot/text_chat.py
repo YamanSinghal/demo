@@ -8,6 +8,10 @@ import streamlit as st
 
 
 st.write("Secret Key", st.secrets["openai_secret_key"])
+st.write(
+    "Has environment variables been set:",
+    os.environ["openai_secret_key"] == st.secrets["openai_secret_key"],
+)
 
 class TextChatApp:
     def __init__(self):
