@@ -19,10 +19,16 @@ class TextChatApp:
 
     def chat(self, user_input):
         self.messages.append({"role": "user", "content": user_input})
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=self.messages
-        )
+        
+        # Set parameters for OpenAI API call
+        params = {
+            "model": "gpt-3.5-turbo",
+            "messages": self.messages,
+            "max_tokens": 100,  # Set the maximum token length
+            "temperature": 1.0,  # Set the temperature for sampling
+        }
+
+        response = openai.ChatCompletion.create(**params)
         chatgpt_reply = response["choices"][0]["message"]["content"]
         self.messages.append({"role": "assistant", "content": chatgpt_reply})
 
