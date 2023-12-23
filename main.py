@@ -8,6 +8,7 @@ audio_chat_app = AudioChatApp()
 text_chat_app = TextChatApp()
 # st.write("Secret Key", st.secrets["openai_secret_key"])
 
+print("main ",st.secrets["openai_secret_key"])
 # Set up Streamlit page configuration
 st.set_page_config(
     page_title="Strangify",
