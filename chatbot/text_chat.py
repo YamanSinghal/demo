@@ -1,9 +1,11 @@
 import openai
 import os
 from utils.prompt import PROMPT_FOR_GPT
+from dotenv import load_dotenv
+load_dotenv()
+import os
 
-
-openai.api_key = "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"
+openai.api_key = os.getenv('KEY')
 
 class TextChatApp:
     def __init__(self):
