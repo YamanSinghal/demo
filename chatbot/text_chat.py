@@ -6,12 +6,10 @@ load_dotenv()
 import os
 import streamlit as st
 
+# Set OpenAI API key from Streamlit secrets
+openai.api_key = st.secrets["openai_secret_key"]
 
 st.write("Secret Key", st.secrets["openai_secret_key"])
-st.write(
-    "Has environment variables been set:",
-    os.environ["openai_secret_key"] == st.secrets["openai_secret_key"],
-)
 
 class TextChatApp:
     def __init__(self):
