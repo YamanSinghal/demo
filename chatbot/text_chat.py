@@ -4,8 +4,10 @@ from utils.prompt import PROMPT_FOR_GPT
 from dotenv import load_dotenv
 load_dotenv()
 import os
+import streamlit as st
 
-openai.api_key = os.getenv('OPEN_KEY')
+
+st.write("Secret Key", st.secrets["openai_secret_key"])
 
 class TextChatApp:
     def __init__(self):

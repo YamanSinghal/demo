@@ -1,76 +1,48 @@
 import sys
-# sys.path.append("../")
 import streamlit as st
-# import pyaudio
-import wave
 from chatbot.audio_chat import AudioChatApp
 from chatbot.text_chat import TextChatApp
+
 # Initialize the AudioChatApp and TextChatApp
 audio_chat_app = AudioChatApp()
 text_chat_app = TextChatApp()
+st.write("Secret Key", st.secrets["openai_secret_key"])
 
-
-# FORMAT = pyaudio.paInt16
-CHANNELS = 1
-RATE = 16000
-CHUNK = 1024
-RECORD_SECONDS = 5
-
-# Function to record audio
-# def record_audio():
-#     p = pyaudio.PyAudio()
-#     stream = p.open(format=FORMAT, channels=CHANNELS, rate=RATE, input=True, frames_per_buffer=CHUNK)
-#     # st.text("Recording...")
-
-#     frames = []
-
-#     for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
-#         data = stream.read(CHUNK)
-#         frames.append(data)
-
-#     stream.stop_stream()
-#     p.terminate()
-
-    # Save the recorded audio as a WAV file
-    # audio_filename = "recorded_audio.wav"
-    # wf = wave.open(audio_filename, 'wb')
-    # wf.setnchannels(CHANNELS)
-    # wf.setsampwidth(p.get_sample_size(FORMAT))
-    # wf.setframerate(RATE)
-    # wf.writeframes(b''.join(frames))
-    # wf.close()
-
-    # return audio_filename
-
+# Set up Streamlit page configuration
 st.set_page_config(
-    page_title="BOT",
+    page_title="Strangify",
+    page_icon="/home/drono07/chat_bot_demo/chat_bot_demo/strangify.jpeg"
 )
-st.title("BOT")
 
-# Create the sidebar with settings
-st.sidebar.header("Limitless support , One platform")
+# Set up Streamlit sidebar
+st.sidebar.header("Limitless support, One platform")
+st.sidebar.image("/home/drono07/Desktop/strangify/strangify.jpeg", use_column_width=True)
+st.sidebar.markdown("<small>Powered by Strangify</small>", unsafe_allow_html=True)
 
+# Initialize messages in session state if not already present
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-input_message = st.text_input("What is up?", key="input_message")
-
-recording = False
-
-if st.button("Send", key="send_button"):
+# Function to send a message
+def send_message():
+    input_message = st.session_state.input_message
     response = text_chat_app.chat(input_message)
-    st.session_state.messages.append({"role": "xyz", "content": response})
+    st.session_state.messages.append({"role": "strangify", "content": response})
+    
+    # Clear the input message after sending
+    st.session_state.input_message = ""
 
-# if st.button("Record"):
-#     audio_filename = record_audio()
-#     st.audio(audio_filename, format="audio/wav")
-#     recording = True
+# Display title
+st.title("Strangify")
 
+# Create the sidebar with settings
 
-# if recording:
-#     chat_transcript = audio_chat_app.transcribe(audio_filename)
-#     st.write(chat_transcript)  
+# Input for text messages
+st.text_input("What is up?", key="input_message", on_change=send_message)
 
+# Button to send messages
+if st.button("Send", key="send_button"):
+    send_message()
 
 # Display chat messages from history on app rerun
 for message in st.session_state.messages:
@@ -78,3 +50,13 @@ for message in st.session_state.messages:
         role = message['role']
         content = message['content']
         st.write(f"{role}: {content}")
+
+# JavaScript to simulate a click on the "Send" button when Enter is pressed
+js_code = """
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        document.getElementById("send_button").click();
+    }
+});
+"""
+st.markdown(f"<script>{js_code}</script>", unsafe_allow_html=True)
