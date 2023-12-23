@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 import os
 
-openai.api_key = os.getenv('KEY')
+openai.api_key = os.getenv('OPEN_KEY')
 
 class TextChatApp:
     def __init__(self):
