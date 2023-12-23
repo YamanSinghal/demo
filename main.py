@@ -16,7 +16,7 @@ st.set_page_config(
 
 # Set up Streamlit sidebar
 st.sidebar.header("Limitless support, One platform")
-st.sidebar.image("/home/drono07/Desktop/strangify/strangify.jpeg", use_column_width=True)
+st.sidebar.image("strangify.jpeg", use_column_width=True)
 st.sidebar.markdown("<small>Powered by Strangify</small>", unsafe_allow_html=True)
 
 # Initialize messages in session state if not already present
